@@ -1,0 +1,333 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-primary: #1a1a2e;
+    --bg-secondary: #16213e;
+    --bg-tertiary: #0f3460;
+    --accent: #00d4ff;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --entry-bg: #2a2a4a;
+    --hover: #3a3a5a;
+    --success: #00ff88;
+    --error: #ff4444;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.company-name {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--accent);
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+.warning-box {
+    background: var(--bg-secondary);
+    border-left: 4px solid var(--accent);
+    padding: 12px 16px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.warning-box strong {
+    color: var(--text-primary);
+}
+
+.upload-area {
+    border: 2px dashed var(--bg-tertiary);
+    border-radius: 12px;
+    padding: 40px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.upload-area:hover,
+.upload-area.dragover {
+    border-color: var(--accent);
+    background: rgba(0, 212, 255, 0.05);
+}
+
+.upload-icon {
+    color: var(--accent);
+    margin-bottom: 15px;
+}
+
+.upload-area p {
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.upload-subtext {
+    color: var(--text-secondary) !important;
+    font-size: 0.9rem;
+}
+
+.file-btn {
+    display: inline-block;
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    padding: 10px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 10px;
+}
+
+.file-btn:hover {
+    background: var(--hover);
+}
+
+.file-info {
+    background: var(--bg-secondary);
+    padding: 12px 16px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.file-name {
+    color: var(--accent);
+    font-weight: 500;
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+    color: var(--error);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0 8px;
+}
+
+.remove-btn:hover {
+    opacity: 0.8;
+}
+
+.progress-container {
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    background: var(--bg-tertiary);
+    border-radius: 8px;
+    height: 8px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--accent);
+    width: 0%;
+    transition: width 0.3s ease;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.progress-text {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.convert-btn {
+    width: 100%;
+    background: var(--accent);
+    color: var(--bg-primary);
+    border: none;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 20px;
+}
+
+.convert-btn:hover:not(:disabled) {
+    background: #00b8d9;
+    transform: translateY(-2px);
+}
+
+.convert-btn:disabled {
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    cursor: not-allowed;
+}
+
+.result-box {
+    background: rgba(0, 255, 136, 0.1);
+    border: 1px solid var(--success);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.result-icon {
+    font-size: 2.5rem;
+    color: var(--success);
+    margin-bottom: 10px;
+}
+
+.result-text {
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+.download-btn {
+    display: inline-block;
+    background: var(--success);
+    color: var(--bg-primary);
+    padding: 12px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.download-btn:hover {
+    background: #00cc6a;
+    transform: translateY(-2px);
+}
+
+.error-box {
+    background: rgba(255, 68, 68, 0.1);
+    border: 1px solid var(--error);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.error-icon {
+    font-size: 2.5rem;
+    color: var(--error);
+    margin-bottom: 10px;
+}
+
+.error-text {
+    color: var(--text-primary);
+}
+
+.portable-section {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+}
+
+.portable-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--bg-tertiary), transparent);
+    margin-bottom: 20px;
+}
+
+.portable-text {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+}
+
+.portable-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg-secondary);
+    border: 2px solid var(--bg-tertiary);
+    color: var(--accent);
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.portable-btn:hover {
+    border-color: var(--accent);
+    background: rgba(0, 212, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.portable-info {
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    margin-top: 8px;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--bg-tertiary);
+}
+
+.footer p {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+}
+
+.services {
+    font-size: 0.65rem !important;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .company-name {
+        font-size: 1.5rem;
+    }
+    
+    .upload-area {
+        padding: 30px 15px;
+    }
+}

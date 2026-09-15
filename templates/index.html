@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF a Word Converter - Ingeniero's Fraile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="company-name">INGENIERO'S FRAILE</h1>
+            <p class="subtitle">Convertidor PDF a Word</p>
+        </header>
+
+        <div class="warning-box">
+            <strong>Aviso Importante:</strong> La conversión puede tener diferencias de formato. Se recomienda revisar el archivo generado.
+        </div>
+
+        <div class="upload-area" id="uploadArea">
+            <div class="upload-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="17 8 12 3 7 8"/>
+                    <line x1="12" y1="3" x2="12" y2="15"/>
+                </svg>
+            </div>
+            <p>Arrastra tu PDF aquí</p>
+            <p class="upload-subtext">o</p>
+            <label class="file-btn" for="pdfInput">Seleccionar archivo</label>
+            <input type="file" id="pdfInput" accept=".pdf" hidden>
+        </div>
+
+        <div class="file-info" id="fileInfo" style="display: none;">
+            <span class="file-name" id="fileName"></span>
+            <button class="remove-btn" id="removeBtn">✕</button>
+        </div>
+
+        <div class="progress-container" id="progressContainer" style="display: none;">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <p class="progress-text" id="progressText">Convirtiendo...</p>
+        </div>
+
+        <button class="convert-btn" id="convertBtn" disabled>
+            Convertir a Word
+        </button>
+
+        <div class="result-box" id="resultBox" style="display: none;">
+            <div class="result-icon">✓</div>
+            <p class="result-text" id="resultText"></p>
+            <a class="download-btn" id="downloadBtn" href="#">
+                Descargar archivo
+            </a>
+        </div>
+
+        <div class="error-box" id="errorBox" style="display: none;">
+            <div class="error-icon">✕</div>
+            <p class="error-text" id="errorText"></p>
+        </div>
+
+        <div class="portable-section">
+            <div class="portable-divider"></div>
+            <p class="portable-text">¿Prefieres usar la versión de escritorio?</p>
+            <a class="portable-btn" href="/download-portable">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                Descargar Versión Portátil (.exe)
+            </a>
+            <p class="portable-info">Funciona sin internet • Sin instalación</p>
+        </div>
+
+        <footer class="footer">
+            <p>© 2026 Ingeniero's Fraile - Todos los derechos reservados</p>
+            <p class="services">Análisis | Diagnóstico | Reparación | Programación | Optimización | Redes | Automatización</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
